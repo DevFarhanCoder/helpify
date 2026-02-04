@@ -20,7 +20,7 @@ const corsOptions = {
     "http://localhost:5173",
     "http://localhost:3000",
     "https://helpify-2026.vercel.app",
-    "https://helpify-4bz4.onrender.com",
+    "https://helpify-41p2.onrender.com",
   ],
   credentials: true,
   optionsSuccessStatus: 200,
@@ -61,7 +61,7 @@ const createAdminUser = async () => {
 };
 
 const PORT = process.env.PORT || 5000;
-const HOST = process.env.HOST || '0.0.0.0';
+const HOST = process.env.HOST || "0.0.0.0";
 
 app.listen(PORT, HOST, () => {
   console.log(`Server running on http://${HOST}:${PORT}`);
