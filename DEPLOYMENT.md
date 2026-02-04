@@ -3,6 +3,7 @@
 ## Frontend Deployment (Vercel)
 
 ### Step 1: Prepare Repository
+
 ✅ Code is already pushed to GitHub: https://github.com/DevFarhanCoder/helpify.git
 
 ### Step 2: Deploy to Vercel
@@ -16,7 +17,6 @@
    - **Root Directory**: `./` (leave as root)
    - **Build Command**: `npm run build`
    - **Output Directory**: `dist`
-   
 6. Add Environment Variable:
    - Key: `VITE_API_URL`
    - Value: `https://your-backend-url.onrender.com/api` (update after backend deployment)
@@ -24,6 +24,7 @@
 7. Click "Deploy"
 
 ### Step 3: Update After Backend Deployment
+
 Once backend is deployed, update the `VITE_API_URL` environment variable in Vercel with your Render backend URL.
 
 ---
@@ -73,13 +74,16 @@ ADMIN_PASSWORD=admin123
 If you get CORS errors, update `backend/server.js` to allow your Vercel domain:
 
 ```javascript
-app.use(cors({
-  origin: ['https://your-frontend.vercel.app', 'http://localhost:5173'],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: ["https://your-frontend.vercel.app", "http://localhost:5173"],
+    credentials: true,
+  }),
+);
 ```
 
 Then push changes:
+
 ```bash
 git add .
 git commit -m "Update CORS for production"
@@ -117,13 +121,16 @@ git push origin main
 ## Quick Reference
 
 ### Repository
+
 - GitHub: https://github.com/DevFarhanCoder/helpify.git
 
 ### Deployment URLs (Update after deployment)
+
 - Frontend: https://your-project.vercel.app
 - Backend: https://helpify-backend.onrender.com
 
 ### Admin Credentials
+
 - Email: admin@helpify.com
 - Password: admin123
 
@@ -132,20 +139,24 @@ git push origin main
 ## Troubleshooting
 
 ### CORS Errors
+
 - Ensure backend CORS is configured to allow your Vercel domain
 - Check that VITE_API_URL includes `/api` at the end
 
 ### 502 Bad Gateway
+
 - Backend may be sleeping (Render free tier)
 - Wait 30 seconds for backend to wake up
 - Check Render logs for errors
 
 ### Database Connection Failed
+
 - Verify MongoDB Atlas IP whitelist includes 0.0.0.0/0
 - Check MONGODB_URI is correct in Render environment variables
 - Ensure database user has read/write permissions
 
 ### Build Failures
+
 - Check Node version compatibility
 - Verify all dependencies are in package.json
 - Review build logs for specific errors
